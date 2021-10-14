@@ -45,7 +45,7 @@ server.use((req, res, next) => {
 });
 
 // Use default router
-server.use('/api', router);
-server.listen(3000, () => {
+server.use(router);
+server.listen(3003, () => {
   console.log('JSON Server is running');
 });
