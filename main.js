@@ -1,9 +1,13 @@
 const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
+// const routers = require('./routes/auth');
 const middlewares = jsonServer.defaults();
 const queryString = require('query-string');
 
+// const routers = jsonServer.router('authRoute');
+
+// const db = mongoose.connection;
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
 
@@ -43,10 +47,31 @@ server.use((req, res, next) => {
   // Continue to JSON Server router
   next();
 });
+//
+// main().catch((err) => console.log(err));
+// async function main() {
+//   await mongoose.connect(process.env.MONGO_URL);
+// }
+// mongoose
+//   .connect(process.env.MONGO_URL)
+//   .then(() => console.log('DB Connection Successfull!'))
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
-// Use default router
-const PORT = process.env.PORT || 3000;
+// mongoose
+//   .connect(process.env.MONGO_URL)
+//   .then(() => console.log('DB Connection Successfull'))
+//   .catch((err) => {
+//     console.error(err);
+//   });
+// await mongoose.connect(process.env.MONGO_URL);
+// server.use(jsonServer);
 server.use(router);
+
+// server.use('/api/auth', authRoute);
+// server.use('/api/users', userRoute);
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log('JSON Server is running');
 });

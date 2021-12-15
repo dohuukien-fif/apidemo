@@ -119,6 +119,7 @@ const randomProductCategory = (categoryLisst, numberProduct) => {
   const randomCategory = randomCategoryCategory(10);
   const productLissts = randomProductList(categoryLisst, 5);
   const productCategory = randomProductCategory(randomCategory, 5);
+  
   const db = {
     products: productLissts,
     categories: categoryLisst,
